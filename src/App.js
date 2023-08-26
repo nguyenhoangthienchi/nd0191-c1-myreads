@@ -17,6 +17,9 @@ function App() {
   }, []);
 
   const onShelfChange = (shelf, book) => {
+    if (shelf === 'none') {
+      return;
+    }
     book.shelf = shelf;
     BooksAPI.update(book, shelf).then(() => {
       setBooks((prevBooks) =>

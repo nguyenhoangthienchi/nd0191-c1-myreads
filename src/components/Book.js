@@ -27,21 +27,20 @@ const Book = ({
           value={bookShelf}
         >
           {isSearching && (
-            <option value='none' disabled>
+            <option disabled>
               Add to...
             </option>
           )}
           {!isSearching && (
-            <option value='none' disabled>
+            <option disabled>
               Move to...
             </option>
           )}
-          {shelves.map((shelf) => (
+          {shelves.map((shelf) => ((isSearching && shelf.shelfName ==='none') || shelf.shelfName !== 'none') && (
             <option key={shelf.id} value={shelf.shelfName}>
               {shelf.title}
             </option>
           ))}
-          {!isSearching && <option value='none'>None</option>}
         </select>
       </div>
     </div>

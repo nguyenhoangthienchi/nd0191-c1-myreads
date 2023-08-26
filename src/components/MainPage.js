@@ -14,7 +14,7 @@ const MainPage = ({
       </div>
       <div className="list-books-content">
         <div>
-          {shelves.map((shelf, key) => (
+          {shelves.map((shelf, key) => shelf.shelfName !== 'none' && (
             <Bookshelf
               key={key}
               shelfTitle={shelf.title}
